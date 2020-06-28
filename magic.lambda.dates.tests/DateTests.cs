@@ -35,7 +35,7 @@ date.format:x:-
         }
 
         [Fact]
-        public void AddTime()
+        public void AddTime_01()
         {
             var lambda = Common.Evaluate(@"
 date.now
@@ -45,6 +45,29 @@ math.add
       hours:1");
             Assert.Equal(
                 lambda.Children.First().GetEx<DateTime>().AddHours(1),
+                lambda.Children.Skip(1).First().Value);
+        }
+
+        [Fact]
+        public void AddTime_02()
+        {
+            var lambda = Common.Evaluate(@"
+date.now
+math.add
+   get-value:x:@date.now
+   time
+      days:1
+      hours:1
+      minutes:1
+      seconds:1
+      milliseconds:1");
+            Assert.Equal(
+                lambda.Children.First().GetEx<DateTime>()
+                    .AddDays(1)
+                    .AddHours(1)
+                    .AddMinutes(1)
+                    .AddSeconds(1)
+                    .AddMilliseconds(1),
                 lambda.Children.Skip(1).First().Value);
         }
     }
