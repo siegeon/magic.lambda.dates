@@ -18,7 +18,7 @@ namespace magic.lambda.dates.tests
         {
             var lambda = Common.Evaluate(@"
 date.now");
-            Assert.Equal(typeof(DateTime), lambda.Children.First().Value);
+            Assert.Equal(typeof(DateTime), lambda.Children.First().Value.GetType());
         }
 
         [Fact]
@@ -31,6 +31,20 @@ date.format:x:-
             Assert.Equal(
                 lambda.Children.First().GetEx<DateTime>()
                     .ToString("MM:yyyy:ddTHH:mm:ss", CultureInfo.InvariantCulture),
+                lambda.Children.Skip(1).First().Value);
+        }
+
+        [Fact]
+        public void AddTime()
+        {
+            var lambda = Common.Evaluate(@"
+date.now
+math.add
+   get-value:x:@date.now
+   time
+      hours:1");
+            Assert.Equal(
+                lambda.Children.First().GetEx<DateTime>().AddHours(1),
                 lambda.Children.Skip(1).First().Value);
         }
     }
