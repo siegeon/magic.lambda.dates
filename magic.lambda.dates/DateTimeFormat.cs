@@ -28,7 +28,8 @@ namespace magic.lambda.dates
             var format = input.Children.FirstOrDefault(x => x.Name == "format")?.GetEx<string>();
             if (format == null)
                 throw new ArgumentNullException("No [format] provide to [date.format]");
-            input.Value = input.GetEx<DateTime>().ToString(format, CultureInfo.InvariantCulture);
+            input.Value = input.GetEx<DateTime>()
+                .ToString(format, CultureInfo.InvariantCulture);
         }
     }
 }
