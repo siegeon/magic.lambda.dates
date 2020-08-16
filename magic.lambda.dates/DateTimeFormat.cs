@@ -29,6 +29,7 @@ namespace magic.lambda.dates
             if (format == null)
                 throw new ArgumentNullException("No [format] provide to [date.format]");
             input.Value = input.GetEx<DateTime>()
+                .ToUniversalTime()
                 .ToString(format, CultureInfo.InvariantCulture);
         }
     }
