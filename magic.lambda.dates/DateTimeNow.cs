@@ -27,9 +27,9 @@ namespace magic.lambda.dates
         {
             var format = input.Children.FirstOrDefault(x => x.Name == "format")?.GetEx<string>();
             if (format == null)
-                input.Value = DateTime.Now;
+                input.Value = DateTime.Now.ToUniversalTime();
             else
-                input.Value = DateTime.Now.ToString(format, CultureInfo.InvariantCulture);
+                input.Value = DateTime.Now.ToUniversalTime().ToString(format, CultureInfo.InvariantCulture);
         }
     }
 }
