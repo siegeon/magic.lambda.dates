@@ -13,7 +13,7 @@ using magic.signals.contracts;
 namespace magic.lambda.dates
 {
     /// <summary>
-    /// [date.now] slot, allowing you to retrieve server time.
+    /// [date.now] slot, allowing you to retrieve server time in UTC timezone.
     /// </summary>
     [Slot(Name = "date.now")]
     public class DateTimeNow : ISlot
@@ -27,9 +27,9 @@ namespace magic.lambda.dates
         {
             var format = input.Children.FirstOrDefault(x => x.Name == "format")?.GetEx<string>();
             if (format == null)
-                input.Value = DateTime.Now.ToUniversalTime();
+                input.Value = DateTime.UtcNow;
             else
-                input.Value = DateTime.Now.ToUniversalTime().ToString(format, CultureInfo.InvariantCulture);
+                input.Value = DateTime.UtcNow.ToString(format, CultureInfo.InvariantCulture);
         }
     }
 }
