@@ -27,11 +27,21 @@ date.now");
             var lambda = Common.Evaluate(@"
 date.now
 date.format:x:-
-   format:""MM:yyyy:ddTHH:mm:ss""");
+   format:""MM:yyyy:ddTHH:mm:ss""
+");
             Assert.Equal(
                 lambda.Children.First().GetEx<DateTime>()
                     .ToString("MM:yyyy:ddTHH:mm:ss", CultureInfo.InvariantCulture),
                 lambda.Children.Skip(1).First().Value);
+        }
+
+        [Fact]
+        public void FormatThrows()
+        {
+            Assert.Throws<ArgumentException>(() => Common.Evaluate(@"
+date.now
+date.format:x:-
+"));
         }
 
         [Fact]
@@ -68,6 +78,20 @@ math.add
                     .AddMinutes(1)
                     .AddSeconds(1)
                     .AddMilliseconds(1),
+                lambda.Children.Skip(1).First().Value);
+        }
+
+        [Fact]
+        public void AddTime_03()
+        {
+            var lambda = Common.Evaluate(@"
+date.now
+math.add
+   get-value:x:@date.now
+   time
+      minutes:1");
+            Assert.Equal(
+                lambda.Children.First().GetEx<DateTime>().AddMinutes(1),
                 lambda.Children.Skip(1).First().Value);
         }
     }

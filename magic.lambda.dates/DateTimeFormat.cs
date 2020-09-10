@@ -25,8 +25,7 @@ namespace magic.lambda.dates
         /// <param name="input">Parameters passed from signaler</param>
         public void Signal(ISignaler signaler, Node input)
         {
-            var format = input.Children.FirstOrDefault(x => x.Name == "format")?.GetEx<string>();
-            if (format == null)
+            var format = input.Children.FirstOrDefault(x => x.Name == "format")?.GetEx<string>() ??
                 throw new ArgumentException("No [format] provide to [date.format]");
             input.Value = input.GetEx<DateTime>()
                 .ToUniversalTime()

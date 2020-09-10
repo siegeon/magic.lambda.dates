@@ -25,11 +25,7 @@ namespace magic.lambda.dates
         /// <param name="input">Parameters passed from signaler</param>
         public void Signal(ISignaler signaler, Node input)
         {
-            var format = input.Children.FirstOrDefault(x => x.Name == "format")?.GetEx<string>();
-            if (format == null)
-                input.Value = DateTime.UtcNow;
-            else
-                input.Value = DateTime.UtcNow.ToString(format, CultureInfo.InvariantCulture);
+            input.Value = DateTime.UtcNow;
         }
     }
 }
