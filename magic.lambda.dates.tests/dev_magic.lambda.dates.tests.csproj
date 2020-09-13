@@ -15,7 +15,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
   </ItemGroup>
 
@@ -25,10 +25,4 @@
     <ProjectReference Include="..\..\magic.lambda.math\magic.lambda.math\dev_magic.lambda.math.csproj" />
     <ProjectReference Include="..\magic.lambda.dates\dev_magic.lambda.dates.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Configuration">
-    </Reference>
-  </ItemGroup>
-
 </Project>

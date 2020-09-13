@@ -20,16 +20,11 @@
     </PackageReference>
     <PackageReference Include="magic.signals" Version="8.1.*" />
     <PackageReference Include="magic.lambda.math" Version="8.1.*" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\magic.lambda.dates\magic.lambda.dates.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Configuration">
-    </Reference>
   </ItemGroup>
 </Project>
