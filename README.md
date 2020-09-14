@@ -1,7 +1,7 @@
 
 # Magic Lambda Dates
 
-[![Build status](https://travis-ci.org/polterguy/magic.lambda.dates.svg?master)](https://travis-ci.org/polterguy/magic.lambda.dates)
+[![Build status](https://travis-ci.com/polterguy/magic.lambda.dates.svg?master)](https://travis-ci.com/polterguy/magic.lambda.dates)
 
 Date manipulation library for [Magic](https://github.com/polterguy/magic). More specifically, it gives you the following slots.
 
