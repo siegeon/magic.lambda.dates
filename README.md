@@ -27,6 +27,10 @@ date.format:x:-
    format:"yyyy-MM-dd HH:mm:ss"
 ```
 
+## Project website
+
+The source code for this repository can be found at [github.com/polterguy/magic.lambda.dates](https://github.com/polterguy/magic.lambda.dates), and you can provide feedback, provide bug reports, etc at the same place.
+
 ## Quality gates
 
 - [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=polterguy_magic.lambda.dates&metric=alert_status)](https://sonarcloud.io/dashboard?id=polterguy_magic.lambda.dates)
