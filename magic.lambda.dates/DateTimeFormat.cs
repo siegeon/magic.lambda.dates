@@ -25,7 +25,7 @@ namespace magic.lambda.dates
         public void Signal(ISignaler signaler, Node input)
         {
             var format = input.Children.FirstOrDefault(x => x.Name == "format")?.GetEx<string>() ??
-                throw new ArgumentException("No [format] provide to [date.format]");
+                throw new HyperlambdaException("No [format] provide to [date.format]");
             input.Value = input.GetEx<DateTime>()
                 .ToUniversalTime()
                 .ToString(format, CultureInfo.InvariantCulture);

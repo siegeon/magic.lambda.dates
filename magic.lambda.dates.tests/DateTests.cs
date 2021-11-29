@@ -37,7 +37,7 @@ date.format:x:-
         [Fact]
         public void FormatThrows()
         {
-            Assert.Throws<ArgumentException>(() => Common.Evaluate(@"
+            Assert.Throws<HyperlambdaException>(() => Common.Evaluate(@"
 date.now
 date.format:x:-
 "));
