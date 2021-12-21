@@ -7,10 +7,12 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Moq;
 using magic.node;
+using magic.node.contracts;
+using magic.signals.services;
 using magic.signals.contracts;
 using magic.node.extensions.hyperlambda;
-using magic.signals.services;
 
 namespace magic.lambda.dates.tests
 {
@@ -29,9 +31,10 @@ namespace magic.lambda.dates.tests
 
         static IServiceProvider Initialize()
         {
-            var configuration = new ConfigurationBuilder().Build();
             var services = new ServiceCollection();
-            services.AddTransient<IConfiguration>((svc) => configuration);
+            var mockConfiguration = new Mock<IMagicConfiguration>();
+            mockConfiguration.SetupGet(x => x[It.IsAny<string>()]).Returns("bar-xx");
+            services.AddTransient((svc) => mockConfiguration.Object);
             services.AddTransient<ISignaler, Signaler>();
             var types = new SignalsProvider(InstantiateAllTypes<ISlot>(services));
             services.AddTransient<ISignalsProvider>((svc) => types);
