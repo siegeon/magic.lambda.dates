@@ -21,6 +21,22 @@ date.now");
         }
 
         [Fact]
+        public void Min()
+        {
+            var lambda = Common.Evaluate(@"
+date.min");
+            Assert.Equal(DateTime.MinValue, lambda.Children.First().Value);
+        }
+
+        [Fact]
+        public void Max()
+        {
+            var lambda = Common.Evaluate(@"
+date.max");
+            Assert.Equal(DateTime.MaxValue, lambda.Children.First().Value);
+        }
+
+        [Fact]
         public void Format()
         {
             var lambda = Common.Evaluate(@"
