@@ -29,6 +29,7 @@ namespace magic.lambda.dates
             input.Value = input.GetEx<DateTime>()
                 .ToUniversalTime()
                 .ToString(format, CultureInfo.InvariantCulture);
+            input.Clear();
         }
     }
 }
